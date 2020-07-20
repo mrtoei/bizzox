@@ -52,6 +52,10 @@ $country_code = array("CN","JP","LA","MY","TH");
 						<td class="w-75"><input type="text" class="form-control" name="fax" value="<?=set_value('fax')?>"/></td>
 					</tr>
 					<tr>
+						<th scope="row" class="w-25">Email</th>
+						<td class="w-75"><input type="text" class="form-control" name="email" value="<?=set_value('email')?>"/></td>
+					</tr>
+					<tr>
 						<th scope="row" class="w-25">Country</th>
 						<td class="w-75">
 							<!-- <input type="text" class="form-control" name="country_code" value="<?=set_value('country_code')?>"/> -->

@@ -2,9 +2,9 @@
 $this->load->view('header');
 $this->load->view('menu');
 $url = base_url();
-
+$country_code = array("CN","JP","LA","MY","TH");
 ?>
-<form action="update" method="post">
+<form action="<?=base_url("customer/update")?>" method="post">
 <div class="container">
 	<div class="row">
 		<div class="col">
@@ -45,9 +45,14 @@ $url = base_url();
 						<td class="w-75"><input type="text" class="form-control" name="fax" value="<?php echo $customer->fax?>"/></td>
 					</tr>
 					<tr>
+						<th scope="row" class="w-25">Email</th>
+						<td class="w-75"><input type="text" class="form-control" name="email" value="<?php echo $customer->email?>"/></td>
+					</tr>
+					<tr>
 						<th scope="row" class="w-25">Country</th>
 						<!-- <td class="w-75"><input type="text" class="form-control" name="country_code" value="<?php echo $customer->country_code?>"/></td> -->
-						<select class="form-control" name="country_code" value="<?=set_value('country_code')?>">
+						<td class="w-75">
+							<select class="form-control" name="country_code" value="<?=set_value('country_code')?>">
 								<option value=""> </option>
 								<?php
 									foreach ($country_code as $code) { ?>
@@ -55,7 +60,9 @@ $url = base_url();
 									<?php
 									}
 								?>
-						</select>
+							</select>
+						</td>
+						
 					</tr>
 				</tbody>
 			</table>
@@ -65,7 +72,7 @@ $url = base_url();
 		<div class="col">
 			<input type="hidden" name="id" value="<?php echo $customer->id;?>">
 			<button type="submit" class="btn btn-info">update</button>
-			<a href="delete?id=<?=$customer->id?>" onclick="return confirm('Confirm Delete ?');" class="btn btn-danger">Delete</a>
+			<a href="<?=base_url("delete?id=$customer->id")?>" onclick="return confirm('Confirm Delete ?');" class="btn btn-danger">Delete</a>
 		</div>
 	</div>
 </div>

@@ -2,7 +2,6 @@
 <?php
 $this->load->view('header');
 $this->load->view('menu');
-$country_code = array("CN","JP","LA","MY","TH");
 ?>
 <link rel="stylesheet" type = "text/css"  href="<?php echo base_url('assets/css/customer.css')?>">
 <div class="container">
@@ -45,9 +44,9 @@ $country_code = array("CN","JP","LA","MY","TH");
 						<td><?=$customer['fax']?></td>
 						<td><?=$customer['country_code']?></td>
 						<!-- <td><?=$customer['id']?></td> -->
-						<td><a href="customer/detail?id=<?=$id?>"><i class="fas fa-eye"></i></a></td>
-						<td><a href="customer/edit?id=<?=$id?>"><i class="fas fa-pen"></i></a></td>
-						<td><a href="customer/delete?id=<?=$id?>" onclick="return confirm('Confirm Delete ?');"><i class="fas fa-trash-alt"></i></a></td>
+						<td><a href="<?=base_url("customer/detail?id=$id")?>"><i class="fas fa-eye"></i></a></td>
+						<td><a href="<?=base_url("customer/edit?id=$id")?>"><i class="fas fa-pen"></i></a></td>
+						<td><a href="<?=base_url("customer/delete?id=$id")?>" onclick="return confirm('Confirm Delete ?');"><i class="fas fa-trash-alt"></i></a></td>
 					</tr>
 				<?php
 				}
@@ -56,6 +55,13 @@ $country_code = array("CN","JP","LA","MY","TH");
 			</table>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col">
+			<?php echo $pagination; ?>
+		</div>
+	</div>
+	
+
 </div>
 
 

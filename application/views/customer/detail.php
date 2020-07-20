@@ -11,7 +11,7 @@ $url = base_url();
 			<table class="table">
 				<thead class="thead-light">
 					<tr>
-						<th scope="col" colspan="2">ข้อมูลรายละเอียดของลูกค้า</th>
+						<th scope="col" colspan="2">Detail Customer</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -36,6 +36,10 @@ $url = base_url();
 						<td class="w-75"><?php echo $customer->fax?></td>
 					</tr>
 					<tr>
+						<th scope="row" class="w-25">Email</th>
+						<td class="w-75"><?php echo $customer->email?></td>
+					</tr>
+					<tr>
 						<th scope="row" class="w-25">Country</th>
 						<td class="w-75"><?php echo $customer->country_code?></td>
 					</tr>
@@ -45,8 +49,9 @@ $url = base_url();
 	</div>
 	<div class="row">
 		<div class="col">
-			<a href="edit?id=<?=$customer->id?>" class="btn btn-success">Edit</a>
-			<a href="delete?id=<?=$customer->id?>" onclick="return confirm('Confirm Delete ?');" class="btn btn-danger">Delete</a>
+			<a href="<?=base_url("customer/edit?id=$customer->id")?>" class="btn btn-success">Edit</a>
+			<a href="<?=base_url("customer/delete?id=$customer->id")?>" onclick="return confirm('Confirm Delete ?');" class="btn btn-danger">Delete</a>
+
 		</div>
 	</div>
 </div>
