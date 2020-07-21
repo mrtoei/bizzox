@@ -6,21 +6,46 @@ $this->load->view('menu');
 <link rel="stylesheet" type = "text/css"  href="<?php echo base_url('assets/css/product.css')?>">
 <title>Products</title>
 <script>
+	fetch_data(1)
+	$(document).on("click", ".pagination li a", function(event){
+		event.preventDefault();
+		var page = $(this).data("ci-pagination-page");
+		fetch_data(page)
+	
+	});
+	
+		
+	function fetch_data(page){
+		console.log('page : '+page);
+		$.ajax({
+			url: "<?=base_url('product/fetch_data/')?>"+page,
+			method:"GET",
+			dataType: 'json',
+			success: function (data) {
+				// console.log(data);
+				$('#page').val(page)
+				$('#data_products').html(data.products)
+				$('#pagination_link').html(data.pagination_link)
+			}
+		});
+	}
 	$(document).ready(function(){
 		$('#form').submit(function(e){
 			e.preventDefault();
 			var action = $('#btn-action').val()
 			var formdata = $(this).serialize()
+			var page = $('#page').val()
 			if(formValidation()===true){
 				if(action == 'save'){
-					saveProduct(formdata)
+					saveProduct(formdata,page)
 				}else if(action == 'update'){
-					updateProduct(formdata)
+					updateProduct(formdata,page)
 				}
 			}
 		})
 
-		function saveProduct(formdata){
+
+		function saveProduct(formdata,page){
 			$.ajax({
 				type: "post",
 				url: "<?=base_url('product/insertProduct')?>",
@@ -28,13 +53,13 @@ $this->load->view('menu');
 				dataType:'json',
 				success: function (response) {
 					if(response.status==200){
-						detailProduct(response.id)
+						detailProduct(response.id,page)
 					}
 				}
 			});
 		}
 
-		function updateProduct(formdata){
+		function updateProduct(formdata,page){
 			$.ajax({
 				type: "post",
 				url: "<?=base_url('product/updateProduct')?>",
@@ -42,18 +67,19 @@ $this->load->view('menu');
 				dataType:'json',
 				success: function (response) {
 					if(response.status==200){
-						detailProduct(response.id)
+						detailProduct(response.id,page)
 					}
 				}
 			});
 		}
 
-		function detailProduct(id){
+		function detailProduct(id,page){
 			$.ajax({
 				type: "post",
 				url: "<?=base_url('product/detailProduct')?>",
 				data: {id:id},
 				success: function (data) {
+					fetch_data(page)
 					$('#modal-title').html('Detail Product')
 					$('#modal-body').html(data)
 					// document.getElementById("btn-action").style.display = "none";
@@ -92,6 +118,7 @@ $this->load->view('menu');
 			url: "<?=base_url('product/formProduct')?>",
 			success: function (data) {
 				$('#myModal').modal('show')
+				$('#btn-action').show()
 				$('#modal-title').html('Add Product')
 				$('#modal-body').html(data)
 				$('#btn-action').html('Save')
@@ -106,11 +133,9 @@ $this->load->view('menu');
 			data: {id:id},
 			success: function (data) {
 				$('#myModal').modal('show')
-				$('#btn-action').show()
+				$('#btn-action').hide()
 				$('#modal-title').html('Detail Product')
 				$('#modal-body').html(data)
-				$('#btn-action').html('Update')
-				$('#btn-action').val('update')
 			}
 		});
 	}
@@ -137,9 +162,12 @@ $this->load->view('menu');
 				type: "post",
 				url: "<?=base_url('product/deleteProduct')?>",
 				data: {id:id},
+				dataType:'json',
 				success: function (response) {
+					var page = $('#page').val()
 					if(response.status==200){
-						location.reload();
+						// location.reload();
+						fetch_data(page)
 					}
 				}
 			});
@@ -148,7 +176,7 @@ $this->load->view('menu');
 	}
 		
 </script>
-
+<input type="hidden" id="page">
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
@@ -159,60 +187,13 @@ $this->load->view('menu');
 		</div>
 	</div>
 	<div class="row">
-		<div class="col">
-		<table class="table">
-				<thead>
-					<tr>
-						<th scope="col">Name</th>
-						<th scope="col">Description</th>
-						<th scope="col">Price Normal</th>
-						<th scope="col">Price Sale</th>
-						<th scope="col">View</th>
-						<th scope="col">Edit</th>
-						<th scope="col">Delete</th>
-					</tr>
-				</thead>
-				<tbody>
-				<?php
-				if(count($products)>0) {
-					foreach ($products as $product) {
-						$id = $product['id'];
-						?>
-						<tr>
-							<td><?=$product['name']?></td>
-							<td><?=$product['description']?></td>
-							<td><?=$product['price_normal']?></td>
-							<td><?=$product['price_sale']?></td>
-							<td>
-								<a href="#" onclick="viewProduct(<?=$id?>)"><i class="fas fa-eye"></i></a>
-							</td>
-							<td>
-								<a href="#" onclick="editProduct(<?=$id?>)"><i class="fas fa-pen"></i></a>
-							</td>
-							<td>
-								<a href="#" onclick="deleteProduct(<?=$id?>)"><i class="fas fa-trash-alt"></i></a>
-							</td>
-						</tr>
-					<?php
-					}
-				}else{?>
-						<tr>
-							<td colspan="10" style="text-align: center;">No Data</td>
-						</tr>
-				<?php 
-				}
-				?>
-				</tbody>
-			</table>
+		<div class="col" id="data_products">
+			
 		</div>
 	</div>
 	<div class="row">
-		<div class="col">
-			<?php
-			if(count($products)>0) {
-			 	echo $pagination;
-			}
-			?>
+		<div class="col" id="pagination_link">
+			
 		</div>
 	</div>
 </div>

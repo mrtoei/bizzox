@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2020 at 01:05 PM
+-- Generation Time: Jul 21, 2020 at 04:35 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.5
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -1071,11 +1071,11 @@ CREATE TABLE `xproduct` (
 --
 
 INSERT INTO `xproduct` (`id`, `name`, `description`, `price_normal`, `price_sale`, `published`, `created_at`, `updated_at`) VALUES
-(20000, 'Robin-B-Hood (Bo bui gai wak)', 'Action|Comedy|Drama', '491', '103', 0, '2020-07-18 22:06:45', '2020-02-29 07:14:46'),
+(20000, 'Robin-B-Hood (Bo bui gai wak)', 'Action|Comedy|Drama', '491', '103', 1, '2020-07-18 22:06:45', '2020-07-21 15:32:57'),
 (20001, 'Our Little Differences (Die feinen Unterschiede)', 'Drama', '246', '155', 0, '2019-08-31 18:41:23', '2019-08-30 03:09:47'),
 (20002, 'All I Want for Christmas', 'Children|Comedy', '221', '121', 0, '2019-12-20 05:56:37', '2019-12-30 18:46:57'),
 (20003, 'Sheep Has Five Legs, The (Le mouton à cinq pattes)', 'Comedy', '444', '135', 0, '2019-08-16 08:53:21', '2020-03-26 08:48:06'),
-(20004, 'Parallel Sons', 'Drama|Romance', '436', '107', 0, '2020-01-26 05:17:32', '2020-04-02 15:57:47'),
+(20004, 'Parallel', 'Drama|Romance', '436', '107', 0, '2020-01-26 05:17:32', '2020-07-21 16:05:41'),
 (20005, 'Guelwaar', 'Drama', '206', '119', 0, '2019-08-07 10:18:34', '2020-07-16 23:44:50'),
 (20006, 'Clink of Ice, The (a.k.a.: Sound of Ice Cubes, The) (Le bruit des glaçons)', 'Comedy|Drama', '307', '101', 0, '2020-02-28 08:41:24', '2020-04-19 15:45:03'),
 (20007, 'Day After, The', 'Drama|Sci-Fi', '235', '155', 0, '2019-11-24 14:02:15', '2019-11-07 14:13:19'),
@@ -1083,8 +1083,8 @@ INSERT INTO `xproduct` (`id`, `name`, `description`, `price_normal`, `price_sale
 (20009, 'Thor: The Dark World', 'Action|Adventure|Fantasy|IMAX', '446', '169', 0, '2020-03-09 01:50:27', '2019-09-15 11:30:46'),
 (20010, 'Switch', 'Comedy|Crime|Fantasy', '280', '147', 0, '2020-07-18 00:52:22', '2019-08-01 14:59:11'),
 (20011, 'Woman\'s Face, A', 'Drama|Thriller', '289', '101', 0, '2019-09-19 06:42:07', '2019-11-27 14:07:13'),
-(20012, 'April Showers', 'Drama', '473', '163', 0, '2020-02-08 09:44:14', '2020-06-08 18:36:07'),
-(20013, 'Under Siege 2: Dark Territory', 'Action', '456', '116', 0, '2020-02-25 16:04:31', '2020-07-14 16:43:37'),
+(20012, 'April Showers', 'Drama', '473', '163', 0, '2020-02-08 09:44:14', '2020-07-21 15:50:44'),
+(20013, 'Under Siege 2: Dark Territory', 'Action', '456', '116', 0, '2020-02-25 16:04:31', '2020-07-21 15:41:02'),
 (20014, 'Trancers III', 'Action|Horror|Sci-Fi', '453', '194', 0, '2019-12-26 09:11:38', '2019-09-07 22:06:20'),
 (20015, 'From Time to Time', 'Adventure|Drama|Fantasy', '237', '117', 0, '2020-04-27 07:07:13', '2019-12-04 16:06:38'),
 (20016, 'Conversations with My Gardener (Dialogue avec mon jardinier)', 'Comedy|Drama', '297', '111', 0, '2020-05-03 19:43:55', '2020-01-07 07:54:57'),
@@ -1127,7 +1127,7 @@ INSERT INTO `xproduct` (`id`, `name`, `description`, `price_normal`, `price_sale
 (20053, 'Girl on a Motorcycle, The', 'Drama|Romance', '354', '183', 0, '2020-04-05 09:19:47', '2019-12-28 11:16:41'),
 (20054, 'Chouchou', 'Comedy', '364', '173', 0, '2019-08-12 00:49:37', '2020-04-06 18:16:52'),
 (20055, 'Claymation Comedy of Horrors', 'Animation', '446', '197', 0, '2020-01-27 16:10:59', '2020-05-11 02:48:51'),
-(20056, 'Chaperone, The', 'Action|Comedy', '337', '194', 0, '2020-07-19 10:16:01', '2019-07-31 13:39:02'),
+(20056, 'Chaperone, The', 'Action|Comedy', '337', '194', 1, '2020-07-19 10:16:01', '2019-07-31 13:39:02'),
 (20057, 'Cheech & Chong\'s The Corsican Brothers', 'Comedy', '361', '118', 0, '2020-03-26 22:53:58', '2019-10-09 14:33:00'),
 (20058, 'Little Girl Who Conquered Time, The (Toki o kakeru shôjo)', 'Romance|Sci-Fi', '493', '193', 0, '2020-01-08 18:58:27', '2019-09-02 11:40:17'),
 (20059, 'Wives and Lovers', 'Comedy', '290', '121', 0, '2019-08-29 08:30:13', '2020-02-19 18:25:55'),
@@ -1135,24 +1135,24 @@ INSERT INTO `xproduct` (`id`, `name`, `description`, `price_normal`, `price_sale
 (20061, 'Young Americans, The', 'Crime|Drama', '309', '183', 0, '2019-11-06 01:43:00', '2020-03-14 12:52:09'),
 (20062, 'Nightmare on Elm Street, A', 'Horror|Thriller', '222', '154', 0, '2020-02-07 17:44:22', '2020-01-18 10:16:33'),
 (20063, '35 Up', 'Documentary', '484', '176', 0, '2019-09-24 21:27:28', '2020-06-25 04:18:51'),
-(20064, 'The Prisoner', 'Drama', '230', '150', 0, '2020-05-03 17:49:43', '2019-08-14 12:43:58'),
-(20065, 'The Lone Ranger', 'Western', '335', '144', 0, '2019-12-08 09:49:13', '2019-07-21 15:51:08'),
+(20064, 'The Prisoner 1234', 'Dramaddd', '230333', '1503333', 1, '2020-05-03 17:49:43', '2020-07-21 16:33:51'),
+(20065, 'The Lone Ranger ffff', 'Westernfff', '335333', '144333', 1, '2019-12-08 09:49:13', '2020-07-21 16:34:20'),
 (20066, 'Young Adult', 'Comedy|Drama', '409', '153', 0, '2020-01-19 18:13:07', '2019-08-24 23:32:14'),
 (20067, 'Welcome to the South (Benvenuti al Sud)', 'Comedy', '465', '106', 0, '2019-10-29 21:24:26', '2020-01-31 21:33:37'),
 (20068, 'Nacho Libre', 'Comedy', '250', '170', 0, '2019-07-30 19:31:53', '2020-06-19 17:41:46'),
 (20069, 'Martin & Orloff', 'Comedy', '316', '131', 0, '2020-01-02 09:26:35', '2019-10-08 08:56:00'),
 (20070, 'Wise Blood', 'Comedy|Drama', '375', '199', 0, '2019-10-28 04:29:05', '2019-10-03 08:22:50'),
 (20071, 'The Hellions', 'Adventure|Drama|Western', '216', '168', 0, '2020-07-14 18:00:04', '2020-05-15 02:10:38'),
-(20072, 'All Watched Over by Machines of Loving Grace', 'Documentary', '273', '150', 0, '2019-12-18 10:25:26', '2020-05-18 11:44:53'),
+(20072, 'All Watched Over by Machines of Loving Grace', 'Documentary', '273', '150', 0, '2019-12-18 10:25:26', '2020-07-21 16:04:59'),
 (20073, 'We\'ll Never Have Paris', 'Comedy|Romance', '302', '133', 0, '2020-07-05 21:05:25', '2019-12-13 21:40:11'),
-(20074, 'Legend of the Guardians: The Owls of Ga\'Hoole', 'Adventure|Animation|Fantasy|IMAX', '320', '198', 0, '2020-03-06 00:23:54', '2019-12-01 11:31:26'),
-(20075, 'Carol Channing: Larger Than Life', 'Comedy|Documentary|Musical', '415', '189', 0, '2020-01-20 11:10:29', '2020-01-27 11:06:52'),
+(20074, 'Legend of the Guardians: The Owls of Ga\'Hoole', 'Adventure|Animation|Fantasy|IMAX', '320', '198', 0, '2020-03-06 00:23:54', '2020-07-21 15:53:29'),
+(20075, 'Carol Channing: Larger Than Life', 'Comedy|Documentary|Musical', '415', '1895555', 1, '2020-01-20 11:10:29', '2020-07-21 16:05:11'),
 (20076, 'Grudge Match', 'Comedy', '277', '164', 0, '2019-08-12 12:57:05', '2019-10-05 20:23:47'),
 (20077, 'Prince Avalanche', 'Comedy|Drama', '498', '103', 0, '2020-01-08 01:20:08', '2020-03-08 19:09:52'),
 (20078, 'Original Gangstas', 'Crime', '355', '144', 0, '2020-04-27 23:40:04', '2019-07-28 00:19:56'),
 (20079, 'Time Without Pity', 'Crime|Drama|Mystery', '298', '127', 0, '2019-11-20 16:50:18', '2020-01-09 10:02:52'),
-(20080, 'Homem Que Desafiou o Diabo, O', 'Comedy', '407', '105', 0, '2020-02-23 10:54:01', '2020-01-31 01:07:57'),
-(20081, 'Mother, I Love You', 'Drama', '394', '168', 0, '2020-02-01 19:52:06', '2020-01-20 07:11:31'),
+(20080, 'Homem Que Desafiou o Diabo, O', 'Comedy', '407322342', '105', 0, '2020-02-23 10:54:01', '2020-07-21 15:39:01'),
+(20081, 'Mother, I Love You', 'Drama', '394', '168', 0, '2020-02-01 19:52:06', '2020-07-21 15:55:40'),
 (20082, 'Say It Isn\'t So', 'Comedy|Romance', '388', '148', 0, '2020-05-02 18:12:36', '2020-03-06 14:38:41'),
 (20083, 'Pacific Rim', 'Action|Adventure|Sci-Fi|IMAX', '274', '101', 0, '2020-02-18 13:55:53', '2019-10-10 17:17:16'),
 (20084, 'Panic in Needle Park, The', 'Drama|Romance', '370', '100', 0, '2020-03-07 04:23:24', '2020-02-22 01:05:15'),
@@ -1171,17 +1171,20 @@ INSERT INTO `xproduct` (`id`, `name`, `description`, `price_normal`, `price_sale
 (20097, 'Mack, The', 'Crime', '362', '109', 0, '2019-11-11 20:24:08', '2020-04-30 02:39:24'),
 (20098, 'Midnight Chronicles', 'Action|Adventure|Fantasy', '462', '162', 0, '2020-07-03 10:35:22', '2019-09-20 17:06:53'),
 (20099, 'Battle of the Bulge', 'Action|Drama|War', '312', '198', 0, '2019-10-26 02:38:41', '2020-07-02 03:23:25'),
-(20100, 'gjfhgj', 'fghjfghjf', '456456465', '0', 0, '2020-07-21 10:50:08', '2020-07-21 10:50:08'),
-(20101, 'gjfhgj', 'fghjfghjf', '456456465', '0', 0, '2020-07-21 10:50:48', '2020-07-21 10:50:48'),
-(20102, 'gjfhgj', 'fghjfghjf', '456456465', '0', 0, '2020-07-21 10:50:58', '2020-07-21 10:50:58'),
-(20103, 'dfgsd', 'fgsdfgsf', '9999999999', '0', 0, '2020-07-21 10:58:34', '2020-07-21 10:58:34'),
-(20104, 'dfgsd', 'fgsdfgsf', '5656565', '0', 0, '2020-07-21 10:59:05', '2020-07-21 10:59:05'),
-(20105, 'sadfasdf', 'asdfasdf', '3242342342', '0', 0, '2020-07-21 11:03:36', '2020-07-21 11:03:36'),
-(20106, 'huihui', 'hihuihu', '888888', '0', 0, '2020-07-21 11:26:27', '2020-07-21 11:26:27'),
-(20107, 'asdfasd', 'fasdfasdf', '234234234', '0', 0, '2020-07-21 11:49:47', '2020-07-21 11:49:47'),
-(20108, 'afgsdfgasdfasdfa', 'sfgsdfgsd3324234242', '3453452435', '0', 0, '2020-07-21 12:03:49', '2020-07-21 12:11:40'),
-(20109, 'sdfgs', 'dfgsdfgsd', '123444', '0', 0, '2020-07-21 12:13:27', '2020-07-21 12:14:57'),
-(20110, 'asdfasdf', 'asdfasdf', '233333', '0', 0, '2020-07-21 12:14:49', '2020-07-21 12:14:49');
+(20100, 'gjfhgj', 'fghjfghjf', '456456465', '0', 1, '2020-07-21 10:50:08', '2020-07-21 10:50:08'),
+(20101, 'gjfhgj', 'fghjfghjf', '456456465', '0', 1, '2020-07-21 10:50:48', '2020-07-21 10:50:48'),
+(20102, 'gjfhgj', 'fghjfghjf', '456456465', '0', 1, '2020-07-21 10:50:58', '2020-07-21 10:50:58'),
+(20103, 'dfgsd', 'fgsdfgsf', '9999999999', '0', 1, '2020-07-21 10:58:34', '2020-07-21 10:58:34'),
+(20104, 'dfgsd', 'fgsdfgsf', '5656565', '0', 1, '2020-07-21 10:59:05', '2020-07-21 10:59:05'),
+(20105, 'sadfasdf', 'asdfasdf', '3242342342', '0', 1, '2020-07-21 11:03:36', '2020-07-21 11:03:36'),
+(20106, 'huihui', 'hihuihu', '888888', '0', 1, '2020-07-21 11:26:27', '2020-07-21 11:26:27'),
+(20107, 'asdfasd', 'fasdfasdf', '234234234', '0', 1, '2020-07-21 11:49:47', '2020-07-21 11:49:47'),
+(20108, 'afgsdfgasdfasdfa', 'sfgsdfgsd3324234242', '3453452435', '0', 1, '2020-07-21 12:03:49', '2020-07-21 12:11:40'),
+(20109, 'sdfgs', 'dfgsdfgsd', '123444', '0', 1, '2020-07-21 12:13:27', '2020-07-21 12:14:57'),
+(20110, 'asdfasdf', 'asdfasdf', '233333', '0', 1, '2020-07-21 12:14:49', '2020-07-21 12:14:49'),
+(20111, 'dfgs', 'fdgsdfgs', '1212121', '0', 1, '2020-07-21 14:25:35', '2020-07-21 14:25:35'),
+(20112, 'daf', 'asdf', '23444', '0', 0, '2020-07-21 15:36:39', '2020-07-21 15:37:49'),
+(20113, 'fdgsdf', 'sdgsd435', '452345234', '0', 0, '2020-07-21 16:05:25', '2020-07-21 16:05:25');
 
 --
 -- Indexes for dumped tables
@@ -1213,7 +1216,7 @@ ALTER TABLE `xcustomer`
 -- AUTO_INCREMENT for table `xproduct`
 --
 ALTER TABLE `xproduct`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20111;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20114;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

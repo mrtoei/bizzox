@@ -11,17 +11,21 @@ class Product extends CI_Controller {
 		$this->load->model('Product_model');
 		$this->load->database();
 	}
-
 	public function index(){
+		$this->load->view('product/index');
+	}
+
+	public function fetch_data(){
+		
 		$per_page = 15;
 		$total_rows =  $this->Product_model->getAllData();
-		$config['base_url'] =base_url('product/index'); // ชี้หน้าเพจหลักที่จะใช้งานมาที่ customer
+		$config['base_url'] ='#'; // ชี้หน้าเพจหลักที่จะใช้งานมาที่ customer
 		$config['total_rows'] = $total_rows; // จำนวนข้อมูลทั้งหมด
 		$config['per_page'] = $per_page; // จำนวนข้อมูลต่อหน้า
-
+		$config["uri_segment"] = 3;
 		$config['use_page_numbers'] = TRUE; // เพื่อให้เลขหน้าในลิงค์ถูกต้อง ให้เซตค่าส่วนนี้เป็น TRUE
 		$config['num_links'] = 1;	
-		$config["uri_segment"] = 3;
+		
 		$config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination">';
         $config['full_tag_close']   = '</ul></nav></div>';
         $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
@@ -46,10 +50,14 @@ class Product extends CI_Controller {
 		}
 		
 		$this->pagination->initialize($config);
+
+		$output = array(
+			'products'=>$this->Product_model->getPageData($start,$config['per_page']),
+			'pagination_link'=>$this->pagination->create_links()
+		);
+
+		echo json_encode($output);
 		
-		$this->PAGE['products'] = $this->Product_model->getPageData($start,$config['per_page']); // รายชื่อสมาชิกที่จะนำไปแสดงในหน้านั้น
-		$this->PAGE['pagination'] = $this->pagination->create_links(); // เลขหน้า
-		$this->load->view('product/index',$this->PAGE);
 	}
 
 	public function formProduct(){
@@ -99,5 +107,9 @@ class Product extends CI_Controller {
 		$id = $this->input->post('id');
 		$data['product'] = $this->Product_model->detailProduct($id);
 		return $this->load->view('product/edit',$data);
+	}
+	public function deleteProduct(){
+		$id = $this->input->post('id');
+		return $this->Product_model->deleteProduct($id); 
 	}
 }
