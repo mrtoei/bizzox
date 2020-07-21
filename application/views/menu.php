@@ -10,10 +10,10 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item  <?php echo $controller_url=='customer' ? 'active':'null' ?>">
-        <a class="nav-link" href="<?=base_url()?>customer">Customer</a>
+        <a class="nav-link" href="<?=base_url('customer')?>">Customer</a>
       </li>
       <li class="nav-item <?php echo $controller_url=='product' ? 'active':'null' ?>">
-        <a class="nav-link" href="#">Product</a>
+        <a class="nav-link" href="<?=base_url('product')?>">Product</a>
       </li>
     </ul>
   </div>

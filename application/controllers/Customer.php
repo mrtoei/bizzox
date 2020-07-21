@@ -16,13 +16,10 @@ class Customer extends CI_Controller {
 	public function index()
 	{
 		
-		
 		$per_page = 15;
-		
-
 		$total_rows =  $this->Customer_model->getAllData();
 		$config['base_url'] =base_url('customer/index'); // ชี้หน้าเพจหลักที่จะใช้งานมาที่ customer
-		$config['total_rows'] = $this->Customer_model->getAllData(); // จำนวนข้อมูลทั้งหมด
+		$config['total_rows'] = $total_rows; // จำนวนข้อมูลทั้งหมด
 		$config['per_page'] = $per_page; // จำนวนข้อมูลต่อหน้า
 
 		$config['use_page_numbers'] = TRUE; // เพื่อให้เลขหน้าในลิงค์ถูกต้อง ให้เซตค่าส่วนนี้เป็น TRUE

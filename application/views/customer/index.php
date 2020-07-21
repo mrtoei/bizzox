@@ -3,6 +3,7 @@
 $this->load->view('header');
 $this->load->view('menu');
 ?>
+<title>Customers</title>
 <link rel="stylesheet" type = "text/css"  href="<?php echo base_url('assets/css/customer.css')?>">
 <div class="container">
 	<div class="row">
@@ -32,23 +33,30 @@ $this->load->view('menu');
 				</thead>
 				<tbody>
 				<?php
-				foreach ($customers as $customer) {
-					$id = $customer['id'];
-					?>
-					<tr>
-						<td><?=$customer['first_name']?></td>
-						<td><?=$customer['last_name']?></td>
-						<td><?=$customer['gender']?></td>
-						<td><?=$customer['email']?></td>
-						<td><?=$customer['phone']?></td>
-						<td><?=$customer['fax']?></td>
-						<td><?=$customer['country_code']?></td>
-						<!-- <td><?=$customer['id']?></td> -->
-						<td><a href="<?=base_url("customer/detail?id=$id")?>"><i class="fas fa-eye"></i></a></td>
-						<td><a href="<?=base_url("customer/edit?id=$id")?>"><i class="fas fa-pen"></i></a></td>
-						<td><a href="<?=base_url("customer/delete?id=$id")?>" onclick="return confirm('Confirm Delete ?');"><i class="fas fa-trash-alt"></i></a></td>
-					</tr>
-				<?php
+				if(count($customers)>0) {
+					foreach ($customers as $customer) {
+						$id = $customer['id'];
+						?>
+						<tr>
+							<td><?=$customer['first_name']?></td>
+							<td><?=$customer['last_name']?></td>
+							<td><?=$customer['gender']?></td>
+							<td><?=$customer['email']?></td>
+							<td><?=$customer['phone']?></td>
+							<td><?=$customer['fax']?></td>
+							<td><?=$customer['country_code']?></td>
+							<!-- <td><?=$customer['id']?></td> -->
+							<td><a href="<?=base_url("customer/detail?id=$id")?>"><i class="fas fa-eye"></i></a></td>
+							<td><a href="<?=base_url("customer/edit?id=$id")?>"><i class="fas fa-pen"></i></a></td>
+							<td><a href="<?=base_url("customer/delete?id=$id")?>" onclick="return confirm('Confirm Delete ?');"><i class="fas fa-trash-alt"></i></a></td>
+						</tr>
+					<?php
+					}
+				}else{?>
+						<tr>
+							<td colspan="10" style="text-align: center;">No Data</td>
+						</tr>
+				<?php 
 				}
 				?>
 				</tbody>
@@ -57,7 +65,11 @@ $this->load->view('menu');
 	</div>
 	<div class="row">
 		<div class="col">
-			<?php echo $pagination; ?>
+			<?php
+			if(count($customers)>0) {
+			 	echo $pagination;
+			}
+			?>
 		</div>
 	</div>
 	

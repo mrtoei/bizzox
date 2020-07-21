@@ -8,6 +8,27 @@ $url = base_url();
 <div class="container">
 	<div class="row">
 		<div class="col">
+			<?php
+			$action = $this->input->get('action');
+			// echo $action;
+			$msg = '';
+			if($action=='insert'){
+				$msg ='Inserted customer success';
+			}else if($action=='update'){
+				$msg ='Updated customer success';
+			}
+			?>
+
+			<?php if($action){ ?>
+			<div class="alert alert-success" role="alert">
+				<?php echo $msg; ?>
+			</div>
+			<?php } ?>
+			
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
 			<table class="table">
 				<thead class="thead-light">
 					<tr>
